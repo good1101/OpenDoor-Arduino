@@ -37,10 +37,12 @@ class Button
           Serial.print("revers; ");
         Serial.print("Сигнал на пин ");
         Serial.println(_pin);
-
-        _onPress();
-
+        _startPress = millis() / 1000;
       }
+      if(!_btState)
+        _startPress = millis() /1000;
+      if(_startPress + _pressTimeSecond  < millis() / 1000)
+        _onPress();
 
       _btLastState = _btState;
     }
@@ -52,4 +54,6 @@ class Button
     boolean _btLastState;
     boolean _isOpen;
     bool _isReversButton;
+    long _startPress;
+    int _pressTimeSecond = 1;
 };

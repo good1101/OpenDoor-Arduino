@@ -13,8 +13,8 @@
 #define PIN_BUTTON_OPEN_ALL 12 //пин для кнопки открытия всех створок
 #define PIN_BUTTON_CLOSE_ALL 11 //пин для кнопки закрытия всех створок
 
-#define PIN_BUTTON_OPEN_ALL_ALT 8
-#define PIN_BUTTON_CLOSE_ALL_ALT 9
+#define PIN_BUTTON_OPEN_ALL_ALT 8 //пин для кнопки открытия всех створок альтернативный
+#define PIN_BUTTON_CLOSE_ALL_ALT 9 //пин для кнопки закрытия всех створок альтернативный
 
 int moveTimeSecond = 60;
 Button btOpen(PIN_BUTTON_OPEN_ALL, true);
@@ -36,8 +36,8 @@ void setup()
   moveClose.init(close, stop, moveTimeSecond);
   btOpen.setCallbackPress(buttonPressOpen);
   btClose.setCallbackPress(buttonPressClose);
-  btOpenAlt.setCallbackPress(buttonPressOpen);
-  btCloseAlt.setCallbackPress(buttonPressClose);
+  //btOpenAlt.setCallbackPress(buttonPressOpen);   опционально отключено
+  //btCloseAlt.setCallbackPress(buttonPressClose); опционально отключено
 
 }
 
@@ -50,8 +50,8 @@ void loop() {
 
   btOpen.check();
   btClose.check();
-  btOpenAlt.check();
-  btCloseAlt.check();
+ // btOpenAlt.check();
+ // btCloseAlt.check();
   moveOpen.check();
   moveClose.check();
 
